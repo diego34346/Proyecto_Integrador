@@ -1,0 +1,46 @@
+
+.add {
+    display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 110px;
+     height: 25px;
+     background: #133ba9;
+     font-size: 13px;
+     font-weight: 500;
+     border: none;
+     cursor: pointer;
+     text-transform: uppercase;
+     transition: .3s ease all;
+     border-radius: 5px;
+     position: relative;
+     overflow: hidden;
+ }
+ 
+ .add span {
+     position: relative;
+     z-index: 2;
+     transition: .3s ease all;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+  
+ }
+ 
+ .add::after {
+     content: "";
+     width: 1px;
+     height: 1px;
+     background: none;
+     position: absolute;
+     z-index: 1;
+     top: 80%;
+     left: 60%;
+     transition: .5s ease-in-out all;
+     border-radius: 100px;
+     transform-origin: center;
+ }
+ 
+ .add:hover::after {
+     transform: scale(110);
+     background: #11ff00;
+ }
