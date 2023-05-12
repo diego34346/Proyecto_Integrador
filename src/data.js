@@ -44,7 +44,7 @@ const characters = [
       species: 'Human',
       gender: 'Female',
       origin: {
-         name: 'Earth (Replacement Dimension)',
+         name: 'Earth',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
       image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
@@ -56,7 +56,7 @@ const characters = [
       species: 'Human',
       gender: 'Female',
       origin: {
-         name: 'Earth (Replacement Dimension)',
+         name: 'Earth',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
       image: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg',
@@ -68,7 +68,7 @@ const characters = [
       species: 'Human',
       gender: 'Male',
       origin: {
-         name: 'Earth (Replacement Dimension)',
+         name: 'Earth',
          url: 'https://rickandmortyapi.com/api/location/20',
       },
       image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg',
