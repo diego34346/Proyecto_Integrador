@@ -1,20 +1,22 @@
 .divContainer {    
     background-color: #0d2944;
     width: fit-content;
+    position: relative;
     padding: 1em;
+    padding-top: 0em;
     margin: 1em;
-    margin-top: 3em;
-    margin-bottom: 5em;
+    margin-top: 2em;
+    margin-bottom: 0em;
     border-radius: 10px;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     display: flex;    
     justify-content: center;
     flex-direction: column;
-    /* align-items: baseline; */
+    min-width: 200px;
+    max-width: 200px;
 }
 
 .closeButton{
-    /* font-size: medium; */
     border: 0px;    
     background-color: rgb(255, 255, 255);
     color: rgb(255, 0, 0);
@@ -33,11 +35,13 @@
     margin: 6px;
     color: rgb(249, 250, 249);
     text-shadow: -1px 0px 8px rgb(27, 255, 1);
+    font-weight: 400;
 }
 
 .divContainer img{
-    padding: 8px 8px;
-    height: 12em;  
-    width: 12em;    
-    border-radius: 50px;
+    border: 1px solid #26235c;
+    width: 200px;
+    margin-top: 20px;
+    border-radius: 15%;
+
 }
