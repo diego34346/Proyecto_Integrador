@@ -18,8 +18,9 @@ export default function SearchBar( {onSearch} ) {
          <button 
          className={style.add} 
          onClick={()=>onSearch(id)}>
-            <span className={style.span}>Agregar</span>
+            <span className={style.span}>Search</span>
          </button>
+        
       </div>
    );
 }

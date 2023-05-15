@@ -4,7 +4,7 @@
     position: relative;
     padding: 1em;
     padding-top: 0em;
-    margin: 1em;
+    margin: 18px;
     margin-top: 2em;
     margin-bottom: 0em;
     border-radius: 10px;
@@ -43,5 +43,4 @@
     width: 200px;
     margin-top: 20px;
     border-radius: 15%;
-
 }

@@ -11,6 +11,12 @@ function App() {
    const [characters, setCharacters] = useState([])
 
    const onSearch = (id) => {
+
+      if (characters.some((character) => character.id === parseInt(id))) {
+         setCharacters((oldChars) => [...oldChars])
+         return (window.alert("Repeated card"))
+       }
+
       fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -18,24 +24,29 @@ function App() {
             setCharacters((oldChars) => [...oldChars, data])
          }else{
             window.alert("No hay personajes con ese ID");
-         }        
+         }             
       })
    }
 
    const onClose = (id) => {
       setCharacters (characters.filter((char) => char.id !== id))
    }   
-   
+
+   const onRandom = () => {
+      onSearch(Math.floor(Math.random() * 826) + 1)
+   }
+
    return (
       <div className='App'>         
 
          {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
 
-         <Nav 
-         onSearch={onSearch}
+         <Nav          
+            onSearch={onSearch}
+            SearchRandom={onRandom}
          />
 
-         <Cards                         
+         <Cards                        
             characters={characters} 
             onClose={onClose}
          />
