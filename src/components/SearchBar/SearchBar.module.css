@@ -49,7 +49,7 @@
  }
  
  .add:hover::after {
-    transform: scale(110);
+    transform: scale(80);
     background: #11ff00;
  }
 

@@ -1,5 +1,6 @@
 import style from "./SearchBar.module.css"
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SearchBar( {onSearch} ) {
    const [id, setId] = useState("");
@@ -15,11 +16,14 @@ export default function SearchBar( {onSearch} ) {
          type='search' 
          onChange={handleChange}
          />
+
+         <Link to="/home">
          <button 
          className={style.add} 
          onClick={()=>onSearch(id)}>
             <span className={style.span}>Search</span>
          </button>
+         </Link>
         
       </div>
    );

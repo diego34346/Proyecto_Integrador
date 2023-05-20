@@ -54,6 +54,6 @@
  }
  
  .add:hover::after {
-    transform: scale(180);
+    transform: scale(120);
     background: #11ff00;
  }
