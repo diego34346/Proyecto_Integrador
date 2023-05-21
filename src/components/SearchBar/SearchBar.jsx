@@ -15,6 +15,7 @@ export default function SearchBar( {onSearch} ) {
          className={style.input} 
          type='search' 
          onChange={handleChange}
+         placeholder="Add an ID"
          />
 
          <Link to="/home">
@@ -22,6 +23,7 @@ export default function SearchBar( {onSearch} ) {
          className={style.add} 
          onClick={()=>onSearch(id)}>
             <span className={style.span}>Search</span>
+
          </button>
          </Link>
         

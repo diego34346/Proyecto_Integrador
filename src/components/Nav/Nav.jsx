@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Nav(props) {
   return (
     <nav className={Style.navContainer}>
-      {/* <img className={Style.img} src="ram.png" alt="Rick" /> */}
+      <img className={Style.img} src="ram.png" alt="Rick" />
       
       <Link to="/about">
         <button>About</button>

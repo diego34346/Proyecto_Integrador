@@ -24,7 +24,7 @@ function App() {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
-          window.alert("No hay personajes con ese ID");
+          window.alert("There are no characters with that ID");
         }
       });
   };
@@ -38,32 +38,42 @@ function App() {
   };
 
   return (
-    <div className="App">
+
+
+
+    <div>
+
+      <div>
       <Nav onSearch={onSearch} SearchRandom={onRandom} />
-      <Routes>      
+      </div>
 
-        <Route
-          path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
-        />
+      <div className="App">
+        
+        <Routes>      
 
-        <Route path="/about" element={<About/>} />
+          <Route
+            path="/home"
+            element={<Cards characters={characters} onClose={onClose} />}
+          />
 
-        <Route path='/detail/:id' element={<Detail/>} />
+          <Route path="/about" element={<About/>} />
 
-        {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
+          <Route path='/detail/:id' element={<Detail/>} />
 
-        {/* <Card
-            id={Rick.id}
-            name={Rick.name}
-            status={Rick.status}
-            species={Rick.species}
-            gender={Rick.gender}
-            origin={Rick.origin.name}
-            image={Rick.image}
-            onClose={() => window.alert('Emulamos que se cierra la card')}
-         /> */}
-      </Routes>
+          {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
+
+          {/* <Card
+              id={Rick.id}
+              name={Rick.name}
+              status={Rick.status}
+              species={Rick.species}
+              gender={Rick.gender}
+              origin={Rick.origin.name}
+              image={Rick.image}
+              onClose={() => window.alert('Emulamos que se cierra la card')}
+            /> */}
+        </Routes>
+      </div>
     </div>
   );
 }

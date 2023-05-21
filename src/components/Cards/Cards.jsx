@@ -8,7 +8,8 @@ export default function Cards(props) {
     <div className={style.divContainer}>
       {
          characters.map((element) => (
-            <Card                        
+            <Card   
+            key = {element.id}                     
             id = {element.id}
             name = {element.name}
             status = {element.status}

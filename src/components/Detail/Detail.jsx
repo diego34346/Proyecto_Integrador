@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 
 
@@ -11,15 +11,17 @@ export default function Detail(){
     const {id} = useParams(); 
 
     useEffect(() => {
-        axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-           if (data.name) {
-              setCharacter(data);
-           } else {
-              window.alert('No hay personajes con ese ID');
-           }
-        });
-        return setCharacter({});
-     }, [id]);
+        fetch(`https://rickandmortyapi.com/api/character/${id}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.name) {
+                    setCharacter(data);
+                } else {
+                    window.alert('No hay personajes con ese ID');
+                }
+            });
+            return setCharacter({});
+    }, [id]);
 
     return(
         <div>{
