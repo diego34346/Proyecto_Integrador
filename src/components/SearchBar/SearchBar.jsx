@@ -9,27 +9,29 @@ export default function SearchBar( {onSearch} ) {
       setId(event.target.value);
    }
 
-   const handleKeyUp = (event) => {
-      if (event.keyCode === 13) {
-        onSearch(id, setId);
-      }
-    };
+   const handleKeyDown = (event) => {
+		if (event.key === 'Enter') {
+			onSearch(id)
+			setId('')
+		}
+	}
 
    return (
-      <div>
+      <div id="inputSearch">
          <input 
-         
          className={style.inputid} 
          type='search' 
          onChange={handleChange}
          placeholder="Add an id"
-         onKeyUp={handleKeyUp}
+         onKeyUp={handleKeyDown}
+         value={id}
          />
 
          <Link to="/home">
          <button 
          className={style.add} 
-         onClick={()=>onSearch(id)}>
+         onClick={()=>{onSearch(id)
+         setId('')}}>
             <span className={style.span}>Search + Add</span>
 
          </button>

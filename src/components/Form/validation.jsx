@@ -21,7 +21,7 @@ export default function validate(userData) {
         errors.password = 'Must contain at least 1 number.'        
     }
 
-    if (userData < 6 || userData > 10 ){
+    if (userData.password.length < 6 || userData.password.length > 10 ){
         errors.password = 'Must be 6-10 characters'
     }
 

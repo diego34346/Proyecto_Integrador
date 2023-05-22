@@ -51,15 +51,14 @@ function App() {
   const PASSWORD = "654321"
 
   useEffect(() => {
-    !access && navigate('/');
+    !access && navigate('/')    
     // eslint-disable-next-line
     }, [access]);
 
   function Login(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
-       setAccess(true);
-       navigate('/home');
-       
+       setAccess(true)
+       navigate('/home')      
     }
   }  
 
