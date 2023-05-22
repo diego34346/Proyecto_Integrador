@@ -3,7 +3,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 110px;
+    width: 140px;
     height: 25px;
     background: #133ba9;
     font-size: 13px;
@@ -36,7 +36,7 @@
     position: absolute;
     z-index: 1;
     top: 80%;
-    left: 60%;
+    left: 56%;
     transition: .5s ease-in-out all;
     border-radius: 100px;
     transform-origin: center;
@@ -49,16 +49,16 @@
  }
  
  .add:hover::after {
-    transform: scale(80);
+    transform: scale(100);
     background: #11ff00;
  }
 
  
 
- input{
-    width: 20em;
+ .inputid{
+    width: 13em;
     height: 25px;
     border-radius: 10px;
     border: 0px;
-    margin: 2em;
+    margin-right: 20px;
  }

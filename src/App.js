@@ -6,10 +6,17 @@ import Nav from "./components/Nav/Nav";
 // import characters, { } from './data.js';
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
+import Form from "./components/Form/form";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (id) => {
@@ -35,21 +42,39 @@ function App() {
 
   const onRandom = () => {
     onSearch(Math.floor(Math.random() * 826) + 1);
-  };
+  };  
+
+
+  const [access, setAccess] = useState(false);
+
+  const EMAIL = "diego@email.com"
+  const PASSWORD = "654321"
+
+  useEffect(() => {
+    !access && navigate('/');
+    // eslint-disable-next-line
+    }, [access]);
+
+  function Login(userData) {
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+       setAccess(true);
+       navigate('/home');
+       
+    }
+  }  
 
   return (
-
-
-
-    <div>
+    <div>     
 
       <div>
-      <Nav onSearch={onSearch} SearchRandom={onRandom} />
+        {location.pathname !== "/" ? <Nav onSearch={onSearch} SearchRandom={onRandom} /> : ""}        
       </div>
 
       <div className="App">
         
-        <Routes>      
+        <Routes>     
+
+          <Route path='/' element={<Form Login={Login} />} /> 
 
           <Route
             path="/home"
@@ -58,10 +83,10 @@ function App() {
 
           <Route path="/about" element={<About/>} />
 
-          <Route path='/detail/:id' element={<Detail/>} />
+          <Route path='/detail/:id' element={<Detail/>} />          
 
           {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
-
+          
           {/* <Card
               id={Rick.id}
               name={Rick.name}

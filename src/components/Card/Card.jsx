@@ -5,15 +5,19 @@ export default function Card(props) {
    return (
       <div className = {style.divContainer}>
          <button onClick = {() => props.onClose(props.id)} className={style.closeButton}>C L O S E</button>
-         <h3><strong>Id:</strong> {props.id}</h3>
-         <Link to={`/detail/${props.id}`}>
+         <Link className = {style.link} to={`/detail/${props.id}`}>
+         <h3><strong>Id:</strong> {props.id}</h3> 
+         </Link>
+         <Link className = {style.link} to={`/detail/${props.id}`}>
          <h3><strong>Name:</strong> {props.name}</h3>
          </Link>
-         <h3><strong>Status:</strong> {props.status} </h3>
+         {/* <h3><strong>Status:</strong> {props.status} </h3>
          <h3><strong>Species:</strong> {props.species}</h3>
          <h3><strong>Gender:</strong> {props.gender}</h3>
-         <h3><strong>Origin:</strong> {props.origin}</h3>
+         <h3><strong>Origin:</strong> {props.origin}</h3> */}
+         <Link to={`/detail/${props.id}`}>
          <img src={props.image} alt='Imagen' />
+         </Link>                       
       </div>
    );
 }

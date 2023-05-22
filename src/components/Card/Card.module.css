@@ -3,14 +3,16 @@
     width: fit-content;
     position: relative;
     padding: 1em;
-    padding-top: 0em;
+    padding-top: 10px;
+    padding-bottom: 0em;
     margin: 18px;
     margin-top: 2em;
     margin-bottom: 0em;
     border-radius: 10px;
-    box-shadow: 10px 10px 15px 0px rgba(21, 255, 0, 0.411);
+    box-shadow: 0px 0px 10px 3px rgba(21, 255, 0, 0.411);
     display: flex;    
     justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     min-width: 200px;
     max-width: 200px;
@@ -38,9 +40,14 @@
     font-weight: 400;
 }
 
+.link {
+    text-decoration: none;
+}
+
 .divContainer img{
     border: 1px solid #26235c;
     width: 200px;
     margin-top: 20px;
+    margin-bottom: 12px;
     border-radius: 15%;
 }
