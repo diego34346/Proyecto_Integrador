@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import validate from "./validation";
 import "./form.module.css";
 import style from "./form.module.css";
@@ -18,20 +18,16 @@ export default function Form({ Login }) {
 
   const [typePassword, setTypePassword] = useState("password");
 
-  // const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(true);
 
-  // useEffect(() => {
-  //   if (
-  //     userData.email !== "" &&
-  //     userData.password !== "" &&
-  //     errors.email === "" &&
-  //     errors.password === ""
-  //   ) {
-  //     setDisabled(false);
-  //   } else {
-  //     setDisabled(true);
-  //   }
-  // }, [userData, errors]);
+  useEffect(() => {
+    if (
+      errors.email === "" && errors.password === "") {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [userData, errors]);
 
   const handleChange = (event) => {
     const property = event.target.name;
@@ -40,21 +36,23 @@ export default function Form({ Login }) {
       setTypePassword("text");
       setTimeout(() => {
         setTypePassword("password");
-      }, 800);
+      }, 2000);
     }
     setUserData({ ...userData, [property]: value });
     setErrors(validate({ ...userData, [property]: value }));
+    
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => {      
     event.preventDefault();
-    Login(userData);
+    Login(userData)
   };
+
 
   return (
     <div className={style.container}>
       
-      <form className={style.form} onSubmit={handleSubmit}>
+      <form action="" className={style.form} onSubmit={handleSubmit}>
         <h2>Welcome!</h2>
         <div className={style.contInput}>
           <label htmlFor="email">User: </label>
@@ -82,7 +80,10 @@ export default function Form({ Login }) {
           <p className={style.danger}> {errors.password}</p>
         </div>
 
-        <button className={style.btn} type="submit">
+        <button 
+        disabled={disabled}
+        className={style.btn} 
+        type="submit">
           <span className={style.span}>Submit</span>
         </button>
       </form>

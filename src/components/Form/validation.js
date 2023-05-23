@@ -3,7 +3,7 @@ const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$/i;
 const regexpass = /\d/;
 
 export default function validate(userData) {
-    const errors = {}    
+    const errors = {email: "", password: "",}    
   
     if (!regexEmail.test(userData.email)) {
         errors.email = 'It must be an email';
