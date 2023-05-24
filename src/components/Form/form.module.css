@@ -3,7 +3,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  margin-top: 3rem;
+  /* height: 100vh; */
 }
 
 .container h2{
@@ -29,12 +30,11 @@
   }
 
 .form{     
-  margin-right: 50rem;
+  margin-right: 30rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* height: 100vh; */
 }
 
 .contInput{
@@ -42,7 +42,6 @@
   justify-content: center;
   flex-direction: column;
   /* align-items: center; */
-  margin-bottom: 20px;
 }
 
 .contInput input{
@@ -134,12 +133,11 @@
 
 
 .img{
-  margin-right: 40rem;
+  margin-right: 30rem;
   align-items: end;  
   max-width: 50%;
   min-width: 300px;
   height: auto;
-  margin-top: 5rem;
-  
+  margin-top: 3rem;  
 
 }
