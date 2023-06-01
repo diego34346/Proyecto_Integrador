@@ -3,6 +3,7 @@ import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
 // import SearchBar from './components/SearchBar/SearchBar.jsx';
 import Nav from "./components/Nav/Nav";
+import Favorites from "./components/Favorites/favorites";
 // import characters, { } from './data.js';
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
@@ -79,6 +80,8 @@ function App() {
             path="/home"
             element={<Cards characters={characters} onClose={onClose} />}
           />
+
+          <Route path="/favorites" element={<Favorites/>} />
 
           <Route path="/about" element={<About/>} />
 

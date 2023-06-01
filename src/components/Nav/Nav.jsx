@@ -19,6 +19,10 @@ export default function Nav(props) {
       <Link to="/home">
         <button className={Style.home}>Home</button>
       </Link>          
+
+      <Link to="/favorites">
+        <button className={Style.favorites}>Favorites</button>
+      </Link>  
       
       <SearchBar onSearch={props.onSearch} />
       <SearchRandom SearchRandom={props.SearchRandom} />
