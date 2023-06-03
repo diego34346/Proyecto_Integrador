@@ -28,12 +28,17 @@ export default function Detail(){
         <div className = {style.divContainer}>{
             character.name ? (
                 <div className = {style.detailContainer}>
+                    <div>
                     <h1><strong>{character.name}</strong></h1>
                     <h2><strong>Status: </strong>{character.status}</h2>
                     <h2><strong>Species: </strong>{character.species}</h2>
                     <h2><strong>Gender: </strong>{character.gender}</h2>
                     <h2><strong>Origin: </strong>{character.origin.name}</h2>
+                    </div>
+                    
+                    <div>
                     <img src={character.image} alt='Imagen' />
+                    </div>
                 </div>
             ) : (
                 <h3>Loading...</h3>

@@ -24,6 +24,7 @@
     color: rgb(255, 0, 0);
     border-radius: 10px;
     margin: 16px;
+    margin-top: 20px;
 }
 
 .closeButton:hover{
@@ -51,3 +52,21 @@
     margin-bottom: 12px;
     border-radius: 15%;
 }
+
+.btnFav{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 6;
+    cursor: pointer;
+}
+
+.btnFav button{
+    padding: 0px;
+    background: none;
+    border-radius: none;
+    border: none;
+}
+
+
+

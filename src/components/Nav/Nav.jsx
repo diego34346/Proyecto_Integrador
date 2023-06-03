@@ -21,7 +21,7 @@ export default function Nav(props) {
       </Link>          
 
       <Link to="/favorites">
-        <button className={Style.favorites}>Favorites</button>
+        <button className={Style.favorites}>Favorites 🤍</button>
       </Link>  
       
       <SearchBar onSearch={props.onSearch} />

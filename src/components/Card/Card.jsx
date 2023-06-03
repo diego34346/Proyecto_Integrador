@@ -7,7 +7,7 @@ import { useState,useEffect } from "react";
 // import { faHeart } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export function Card({id, name, image, onClose, myFavorites, addFav, removeFav}) {
+export function Card({id, name, image, gender, onClose, myFavorites, addFav, removeFav}) {
    
    const [isFav, setIsFav] = useState(false)
    // const dispatch = useDispatch()  
@@ -19,7 +19,7 @@ export function Card({id, name, image, onClose, myFavorites, addFav, removeFav})
          (removeFav(id))
       }else{
          setIsFav(true);
-         (addFav({id, name, image, onClose, addFav, removeFav}))
+         (addFav({id, name, image, gender, onClose, addFav, removeFav}))
       }
    }
 
@@ -36,7 +36,7 @@ export function Card({id, name, image, onClose, myFavorites, addFav, removeFav})
    return (
       <div className = {style.divContainer}>
          
-         <div>
+         <div className={style.btnFav}>
          {
          isFav ? (
          <button onClick={handleFavorite}>❤️</button>
@@ -65,6 +65,11 @@ export function Card({id, name, image, onClose, myFavorites, addFav, removeFav})
 }
 
 
+export function mapStateToProps (state) {
+   return {
+      myFavorites: state.myFavorites,
+   }
+}
 
 export function mapDispatchToProps (dispatch) {
    return {
@@ -77,11 +82,6 @@ export function mapDispatchToProps (dispatch) {
    }
 }
 
-export function mapStateToProps (state) {
-   return {
-      myFavorites: state.myFavorites,
-   }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
 
