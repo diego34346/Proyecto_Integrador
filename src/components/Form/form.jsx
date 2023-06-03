@@ -53,7 +53,7 @@ export default function Form({ Login }) {
     <div className={style.container}>
       
       <form action="" className={style.form} onSubmit={handleSubmit}>
-        <h2>Welcome!</h2>
+        <h2>Welcome!!</h2>
         <div className={style.contInput}>
           <label htmlFor="email">User: </label>
           <input
