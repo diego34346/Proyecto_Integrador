@@ -56,3 +56,17 @@
     text-shadow: -1px 0px 8px rgb(27, 255, 1);
     font-weight: 400;
 }
+
+.containIcon{
+    display: flex;    
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.icon{
+    color: white; 
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
