@@ -1,34 +1,40 @@
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import Style from "./Nav.module.css";
+import style from "./Nav.module.css";
 import SearchRandom from "../SearchRandom/SearchRandom.jsx";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Nav(props) {
 
-
-
-
   return (
-    <nav className={Style.navContainer}>
-      <img className={Style.img} src="ram.png" alt="Rick" />
+    <nav className={style.navContainer}>
+      <img className={style.img} src="ram.png" alt="Rick" />
       
       <Link to="/about">
-        <button className={Style.about}>About</button>
+        <button className={style.about}>About</button>
       </Link> 
 
       <Link to="/home">
-        <button className={Style.home}>Home</button>
+        <button className={style.home}>Home</button>
       </Link>          
 
       <Link to="/favorites">
-        <button className={Style.favorites}>Favorites 🤍</button>
+        <button className={style.favorites}>
+          <span>Favorites</span>
+          <FontAwesomeIcon
+            className={style.heart}
+            icon={faHeart}
+          />
+          </button>
+        
       </Link>  
       
       <SearchBar onSearch={props.onSearch} />
       <SearchRandom SearchRandom={props.SearchRandom} />
 
       <Link to="/">
-        <button className={Style.logout}>Logout</button>
+        <button className={style.logout}>Logout</button>
       </Link>
       
     </nav>
