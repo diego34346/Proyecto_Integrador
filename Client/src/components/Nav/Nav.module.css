@@ -12,8 +12,6 @@
     width: 200px;
     margin-left: 40px;
     margin-right: 0px;
-
-    /* margin-right: 9em; */
 }
 
 .logout{    
@@ -30,9 +28,7 @@
     border-radius: 10px;
     color: white;
     z-index: 2;
-    transition: .3s ease all;
     font-family: 'Roboto', sans-serif;
-    color: #fff;
 }
 
 .logout:hover{
@@ -54,9 +50,7 @@
     border-radius: 10px;
     color: white;
     z-index: 2;
-    transition: .3s ease all;
     font-family: 'Roboto', sans-serif;
-    color: #fff;
 }
 
 .about:hover{
@@ -77,9 +71,7 @@
     border-radius: 10px;
     color: white;
     z-index: 2;
-    transition: .3s ease all;
     font-family: 'Roboto', sans-serif;
-    color: #fff;
 }
 
 .home:hover{
@@ -102,9 +94,7 @@
     border-radius: 10px;
     color: white;
     z-index: 2;
-    transition: .3s ease all;
     font-family: 'Roboto', sans-serif;
-    color: #fff;
 }
 
 .favorites:hover{

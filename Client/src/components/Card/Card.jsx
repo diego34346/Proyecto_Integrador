@@ -3,15 +3,24 @@ import { Link } from "react-router-dom"
 import { addFav,removeFav } from "../../Redux/actions";
 import { connect } from "react-redux";
 import { useState,useEffect } from "react";
-// import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 // import { faHeart } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export function Card({id, name, image, gender, onClose, myFavorites, addFav, removeFav}) {
+export function Card({id, name, image, gender, onClose, addFav, removeFav}) {
    
-   const [isFav, setIsFav] = useState(false)
-   // const dispatch = useDispatch()  
+   const [isFav, setIsFav] = useState(false)   
+   const myFavorites = useSelector((state)=> state.myFavorites)
+   // const allCharacters = useSelector((state) => state.allCharacters)   
    
+   useEffect(() => {
+      myFavorites.forEach((fav) => {
+         if (fav.id === id) {
+            setIsFav(true);
+         }
+      });   
+   // eslint-disable-next-line
+   }, [myFavorites]);
 
    const handleFavorite = () => {
       if(isFav){
@@ -19,19 +28,9 @@ export function Card({id, name, image, gender, onClose, myFavorites, addFav, rem
          (removeFav(id))
       }else{
          setIsFav(true);
-         (addFav({id, name, image, gender, onClose, addFav, removeFav}))
+         (addFav({id, name, image, gender, onClose}))
       }
    }
-
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === id) {
-            setIsFav(true);
-         }
-      });
-   // eslint-disable-next-line   
-   }, [myFavorites]);
-
 
    return (
       <div className = {style.divContainer}>
@@ -64,12 +63,14 @@ export function Card({id, name, image, gender, onClose, myFavorites, addFav, rem
    );
 }
 
+// Como es un componente funcional se puede usr useSelector
+// y omitir mapStateToProps
 
-export function mapStateToProps (state) {
-   return {
-      myFavorites: state.myFavorites,
-   }
-}
+// export function mapStateToProps (state) {
+//    return {
+//       myFavorites: state.myFavorites,
+//    }
+// }
 
 export function mapDispatchToProps (dispatch) {
    return {
@@ -82,27 +83,4 @@ export function mapDispatchToProps (dispatch) {
    }
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
-
-
-
-
-
-
-// Tambien se peude hacer asi:
-
-// export default function Card({id, name, status, species, gender, origin, image, onClose}) {
-//    return (
-//       <div>
-//          <button onClick={onClose}>X</button>
-//          <h3>Id: {id}</h3>
-//          <h3>Name: {name}</h3>
-//          <h3>Status: {status} </h3>
-//          <h3>Species: {species}</h3>
-//          <h3>Gender: {gender}</h3>
-//          <h3>Origin: {origin}</h3>
-//          <img src={image} alt='Rick Sanchez' />
-//       </div>
-//    );
-// }
+export default connect(null, mapDispatchToProps)(Card);

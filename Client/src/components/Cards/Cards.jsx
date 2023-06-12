@@ -26,7 +26,7 @@ export default function Cards(props) {
 }
 
 
-// Tambien se puede hacer asi:
+// Destructuring de characters:
 
 // export default function Cards({characters}) {
 //    const onClose = () => window.alert('Emulamos que se cierra la card')
@@ -34,8 +34,7 @@ export default function Cards(props) {
 //     <div>
 //       {
 //          characters.map(({id, name, status, species, gender, origin, image}) => (
-//             <Card 
-            
+//             <Card             
 //             id = {id}
 //             name = {name}
 //             status = {status}
@@ -43,8 +42,7 @@ export default function Cards(props) {
 //             gender = {gender}
 //             origin = {origin.name}
 //             image = {image}
-//             onClose = {onClose}           
-            
+//             onClose = {onClose}        
 //             />
 //          ))
 //       }      

@@ -13,7 +13,7 @@ export default function SearchRandom(props) {
          <button 
          className={style.add} 
          onClick={handlerandom}>
-            <span className={style.span}>+ Add Random</span>
+            <span className={style.span}>Add Random</span>
          </button>         
          </Link>
 

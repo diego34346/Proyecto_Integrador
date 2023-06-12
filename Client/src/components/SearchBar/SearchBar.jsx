@@ -22,7 +22,7 @@ export default function SearchBar( {onSearch} ) {
          className={style.inputid} 
          type='search' 
          onChange={handleChange}
-         placeholder="Add an id"
+         placeholder="Enter an id"
          onKeyUp={handleKeyDown}
          value={id}
          />
@@ -32,7 +32,7 @@ export default function SearchBar( {onSearch} ) {
          className={style.add} 
          onClick={()=>{onSearch(id)
          setId('')}}>
-            <span className={style.span}>Search + Add</span>
+            <span className={style.span}>Search / add</span>
 
          </button>
          </Link>

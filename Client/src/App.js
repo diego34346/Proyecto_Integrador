@@ -13,10 +13,14 @@ import { Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addCharacter, removeCharacter } from "./Redux/actions";
+
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [characters, setCharacters] = useState([]);
 
@@ -31,6 +35,7 @@ function App() {
       .then((data) => {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
+          dispatch(addCharacter(data))
         } else {
           window.alert("There are no characters with that ID");
         }
@@ -39,12 +44,12 @@ function App() {
 
   const onClose = (id) => {
     setCharacters(characters.filter((char) => char.id !== id));
+    dispatch(removeCharacter(id));
   };
 
   const onRandom = () => {
     onSearch(Math.floor(Math.random() * 826) + 1);
   };  
-
 
   const [access, setAccess] = useState(false);
 
@@ -56,7 +61,7 @@ function App() {
     // eslint-disable-next-line
     }, [access]);
 
-  function Login(userData) {
+  const Login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
        setAccess(true)
        navigate('/home')      
@@ -65,7 +70,6 @@ function App() {
 
   return (
     <div>     
-
       <div>
         {location.pathname !== "/" ? <Nav onSearch={onSearch} SearchRandom={onRandom} /> : ""}        
       </div>
@@ -75,16 +79,9 @@ function App() {
         <Routes>     
 
           <Route path='/' element={<Form Login={Login} />} /> 
-
-          <Route
-            path="/home"
-            element={<Cards characters={characters} onClose={onClose} />}
-          />
-
-          <Route path="/favorites" element={<Favorites/>} />
-
+          <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+          <Route path="/favorites"  element={<Favorites/>} />
           <Route path="/about" element={<About/>} />
-
           <Route path='/detail/:id' element={<Detail/>} />          
 
           {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
