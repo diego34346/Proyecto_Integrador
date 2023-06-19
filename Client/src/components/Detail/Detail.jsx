@@ -10,14 +10,12 @@ export default function Detail(){
     const {id} = useParams(); 
 
     useEffect(() => {
-        fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+        fetch(`https://rickandmortyapi.com/api/character/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.name) {
                     setCharacter(data);
-                } else {
-                    window.alert('No hay personajes con ese ID');
-                }
+                } 
             });
             return setCharacter({});
     }, [id]);
