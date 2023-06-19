@@ -12,14 +12,14 @@ export default function Nav(props) {
       <img className={style.img} src="ram.png" alt="Rick" />
       
       <Link to="/about">
-        <button className={style.about}>About</button>
+        <button className={style.about}>About me</button>
       </Link> 
 
       <Link to="/home">
         <button className={style.home}>Home</button>
       </Link>          
 
-      <Link to="/favorites">
+      <Link to="/fav">
         <button className={style.favorites}>
           <span>Favorites</span>
           <FontAwesomeIcon

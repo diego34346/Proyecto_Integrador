@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCharacter, removeCharacter } from "./Redux/actions";
+import axios from "axios";
 
 
 function App() {
@@ -53,20 +54,30 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
-  const EMAIL = "diego@email.com"
-  const PASSWORD = "654321"
+  // const EMAemIL = "diego@email.com"
+  // const PASSWORD = "654321"
 
   useEffect(() => {
     !access && navigate('/')    
     // eslint-disable-next-line
     }, [access]);
 
-  const Login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-       setAccess(true)
-       navigate('/home')      
-    }
-  }  
+  // const Login = (userData) => {
+  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
+  //      setAccess(true)
+  //      navigate('/home')      
+  //   }
+  // }  
+
+  function Login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ }
 
   return (
     <div>     
@@ -80,7 +91,7 @@ function App() {
 
           <Route path='/' element={<Form Login={Login} />} /> 
           <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
-          <Route path="/favorites"  element={<Favorites/>} />
+          <Route path="/fav"  element={<Favorites/>} />
           <Route path="/about" element={<About/>} />
           <Route path='/detail/:id' element={<Detail/>} />          
 

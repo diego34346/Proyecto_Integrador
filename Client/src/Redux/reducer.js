@@ -1,14 +1,21 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, RESET_FILTERS} from "./actions";
+import {
+  ADD_FAV,
+  REMOVE_FAV,
+  FILTER,
+  ORDER,
+  ADD_CHARACTER,
+  REMOVE_CHARACTER,
+  RESET_FILTERS,
+} from "./actions";
 
 const initialState = {
   allCharacters: [],
   myFavorites: [],
-  filterCharacters: []
+  filterCharacters: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case ADD_CHARACTER:
       return {
         ...state,
@@ -29,19 +36,35 @@ const rootReducer = (state = initialState, action) => {
         filterCharacters: [...state.myFavorites, action.payload],
         myFavorites: [...state.myFavorites, action.payload],
       };
-    
+
+    // case ADD_FAV:
+    //   return {
+    //     ...state,
+    //     myFavorites: action.payload,
+    //     filterCharacters: action.payload,
+    //   };
+
     case REMOVE_FAV:
       return {
         ...state,
         myFavorites: state.myFavorites.filter(
-          (char) => char.id !== action.payload),
-          filterCharacters: state.myFavorites.filter(
-            (char) => char.id !== action.payload)        
+          (char) => char.id !== action.payload
+        ),
+        filterCharacters: state.filterCharacters.filter(
+          (char) => char.id !== action.payload
+        ),
       };
+
+    // case REMOVE_FAV:
+    //   return { ...state, 
+    //     myFavorites: action.payload,  
+    //     filterCharacters: action.payload};
+
 
     case FILTER:
       const allCharFilter = state.myFavorites.filter(
-        (char) => char.gender === action.payload)
+        (char) => char.gender === action.payload
+      );
       return action.payload === "All"
         ? { ...state, filterCharacters: [...state.myFavorites] }
         : { ...state, filterCharacters: allCharFilter };
@@ -56,11 +79,11 @@ const rootReducer = (state = initialState, action) => {
             : allCharOrder.sort((a, b) => b.id - a.id),
       };
 
-      case RESET_FILTERS:
-        return {
-          ...state,
-          filterCharacters: [...state.myFavorites],
-        };
+    case RESET_FILTERS:
+      return {
+        ...state,
+        filterCharacters: [...state.myFavorites],
+      };
 
     default:
       return { ...state };
