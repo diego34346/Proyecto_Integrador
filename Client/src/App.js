@@ -30,7 +30,7 @@ function App() {
       setCharacters((oldChars) => [...oldChars]);
       return window.alert("Repeated card");
     }
-
+    // https://rickandmortyapi.com/api/character/
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
       .then((res) => res.json())
       .then((data) => {

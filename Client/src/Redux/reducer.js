@@ -33,7 +33,7 @@ const rootReducer = (state = initialState, action) => {
     case ADD_FAV:
       return {
         ...state,
-        filterCharacters: [...state.myFavorites, action.payload],
+        filterCharacters: [...state.filterCharacters, action.payload],
         myFavorites: [...state.myFavorites, action.payload],
       };
 
@@ -59,6 +59,14 @@ const rootReducer = (state = initialState, action) => {
     //   return { ...state, 
     //     myFavorites: action.payload,  
     //     filterCharacters: action.payload};
+
+    
+    // case REMOVE_FAV:
+    //   return {
+    //     ...state,
+    //     filterCharacters: [action.payload],
+    //     myFavorites: [action.payload]
+    //   };
 
 
     case FILTER:
