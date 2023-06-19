@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCharacter, removeCharacter } from "./Redux/actions";
-// import axios from "axios";
+import axios from "axios";
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
       return window.alert("Repeated card");
     }
     
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.name) {
@@ -54,30 +54,30 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
-  const EMAIL = "diego@email.com"
-  const PASSWORD = "654321"
+  // const EMAIL = "diego@email.com"
+  // const PASSWORD = "654321"
 
   useEffect(() => {
     !access && navigate('/')    
     // eslint-disable-next-line
     }, [access]);
 
-  const Login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-       setAccess(true)
-       navigate('/home')      
-    }
-  }  
+  // const Login = (userData) => {
+  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
+  //      setAccess(true)
+  //      navigate('/home')      
+  //   }
+  // }  
 
-//   function Login(userData) {
-//     const { email, password } = userData;
-//     const URL = 'http://localhost:3001/rickandmorty/login/';
-//     axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-//        const { access } = data;
-//        setAccess(data);
-//        access && navigate('/home');
-//     });
-//  }
+  function Login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ }
 
   return (
     <div>     
