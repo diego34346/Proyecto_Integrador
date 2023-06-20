@@ -1,9 +1,7 @@
+const router = require("express").Router()
 const getCharById = require("../controllers/getCharById");
 const login = require("../controllers/login");
-const postFav = require("../controllers/handleFavorites");
-const deleteFav = require("../controllers/handleFavorites");
-const express = require("express");
-const router = express.Router();
+const { postFav, deleteFav } = require("../controllers/handleFavorites");
 
 
 router.get("/character/:id", getCharById)
