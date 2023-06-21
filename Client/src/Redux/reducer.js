@@ -49,12 +49,12 @@ const rootReducer = (state = initialState, action) => {
         filterCharacters: action.payload};
 
     case FILTER:
-      const allCharFilter = state.myFavorites.filter(
-        (char) => char.gender === action.payload
-      );
-      return action.payload === "All"
-        ? { ...state, filterCharacters: [...state.myFavorites] }
-        : { ...state, filterCharacters: allCharFilter };
+      return {
+        ...state,
+        filterCharacters: state.myFavorites.filter(
+          (char) => char.gender === action.payload
+        ),
+      };
 
     case ORDER:
       const allCharOrder = [...state.filterCharacters];
