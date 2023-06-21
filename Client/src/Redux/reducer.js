@@ -37,13 +37,6 @@ const rootReducer = (state = initialState, action) => {
         myFavorites: [...state.myFavorites, action.payload],
       };
 
-    // case ADD_FAV:
-    //   return {
-    //     ...state,
-    //     myFavorites: action.payload,
-    //     filterCharacters: action.payload,
-    //   };
-
     case REMOVE_FAV:
       return {
         ...state,
@@ -55,27 +48,13 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
-    // case REMOVE_FAV:
-    //   return { ...state, 
-    //     myFavorites: action.payload,  
-    //     filterCharacters: action.payload};
-
-    
-    // case REMOVE_FAV:
-    //   return {
-    //     ...state,
-    //     filterCharacters: [action.payload],
-    //     myFavorites: [action.payload]
-    //   };
-
-
     case FILTER:
-      const allCharFilter = state.myFavorites.filter(
-        (char) => char.gender === action.payload
-      );
-      return action.payload === "All"
-        ? { ...state, filterCharacters: [...state.myFavorites] }
-        : { ...state, filterCharacters: allCharFilter };
+      return {
+        ...state,
+        filterCharacters: state.myFavorites.filter(
+          (char) => char.gender === action.payload
+        ),
+      };
 
     case ORDER:
       const allCharOrder = [...state.filterCharacters];
