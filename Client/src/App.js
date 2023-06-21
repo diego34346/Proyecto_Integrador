@@ -13,15 +13,17 @@ import { Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addCharacter, removeCharacter } from "./Redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { addCharacter, removeCharacter, showNotificacion } from "./Redux/actions";
 import axios from "axios";
+import Notification from "./components/Notification/Notification.jsx";
 
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { notification } = useSelector(state => state)
 
   const [characters, setCharacters] = useState([]);
 
@@ -37,6 +39,7 @@ function App() {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
           dispatch(addCharacter(data))
+          dispatch(showNotificacion({message: 'Character added successfully 🥳', type: 'success' }));
         } else {
           window.alert("There are no characters with that ID");
         }
@@ -108,6 +111,9 @@ function App() {
               onClose={() => window.alert('Emulamos que se cierra la card')}
             /> */}
         </Routes>
+        { notification.message !== "" &&
+          <Notification />
+        }
       </div>
     </div>
   );

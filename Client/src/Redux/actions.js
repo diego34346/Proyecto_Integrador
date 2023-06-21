@@ -6,6 +6,8 @@ export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
 export const FILTER = 'FILTER';
 export const ORDER = 'ORDER';
+export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
+export const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION';
 
 export const addCharacter = (character) => {
   return {
@@ -55,4 +57,17 @@ export const orderCards = (A, D) => {
 
 export function resetFilters() {
   return { type: RESET_FILTERS, };
+}
+
+export function showNotificacion(notification) {
+  return {
+    type: SHOW_NOTIFICATION,
+    payload: notification
+  };
+}
+
+export function hideNotificacion() {
+  return {
+    type: HIDE_NOTIFICATION,
+  };
 }

@@ -6,12 +6,18 @@ import {
   ADD_CHARACTER,
   REMOVE_CHARACTER,
   RESET_FILTERS,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION
 } from "./actions";
 
 const initialState = {
   allCharacters: [],
   myFavorites: [],
   filterCharacters: [],
+  notification: {
+    message: "",
+    type: "",
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -64,6 +70,18 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filterCharacters: [...state.myFavorites],
+      };
+
+    case SHOW_NOTIFICATION:
+      return {
+        ...state,
+        notification: action.payload,
+      };
+
+    case HIDE_NOTIFICATION:
+      return {
+        ...state,
+        notification: initialState.notification,
       };
 
     default:
