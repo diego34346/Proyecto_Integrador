@@ -3,14 +3,14 @@ import styles from "./notification.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { hideNotificacion } from "../../Redux/actions";
 
-const Notification = ({ message }) => {
+const Notification = () => {
   const { notification } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setTimeout(() => {
       dispatch(hideNotificacion());
-    }, 3100);
+    }, 2000);
     // eslint-disable-next-line
   }, []);
 

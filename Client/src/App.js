@@ -1,22 +1,19 @@
 import "./App.css";
-// import Card from './components/Card/Card.jsx';
 import Cards from "./components/Cards/Cards.jsx";
-// import SearchBar from './components/SearchBar/SearchBar.jsx';
 import Nav from "./components/Nav/Nav";
 import Favorites from "./components/Favorites/favorites";
-// import characters, { } from './data.js';
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/form";
+import Notification from "./components/Notification/Notification.jsx";
 import { useState } from "react";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCharacter, removeCharacter, showNotificacion } from "./Redux/actions";
 import axios from "axios";
-import Notification from "./components/Notification/Notification.jsx";
 
 
 function App() {
@@ -39,7 +36,7 @@ function App() {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
           dispatch(addCharacter(data))
-          dispatch(showNotificacion({message: 'Character added successfully 🥳', type: 'success' }));
+          dispatch(showNotificacion({message: 'Successfully added ', type: 'success' }));
         } else {
           window.alert("There are no characters with that ID");
         }
