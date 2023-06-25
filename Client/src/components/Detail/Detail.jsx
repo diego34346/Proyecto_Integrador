@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Detail.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import axios from "axios";
 
 // Server
@@ -41,6 +42,11 @@ export default function Detail(){
             ) : (
                 <h3>Loading...</h3>
             )}
+            <div>
+            <Link to="/home">
+            <button className={style.exit}>Go Back</button>
+            </Link> 
+            </div>
             
         </div>
     )
