@@ -24,23 +24,22 @@ function App() {
 
   const [characters, setCharacters] = useState([]);
 
-  const onSearch = (id) => {
-    if (characters.some((character) => character.id === parseInt(id))) {
+  const onSearch = async (id) => {
+    if (characters.some((character) => character.id === (id))) {
       setCharacters((oldChars) => [...oldChars]);
-      return window.alert("Repeated card");
+      return dispatch(showNotificacion({message: "Repeated card", type: 'error' }));
     }
-    
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
+    try {
+      const response = await fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+      const data = await response.json()
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
           dispatch(addCharacter(data))
           dispatch(showNotificacion({message: 'Successfully added ', type: 'success' }));
-        } else {
-          window.alert("There are no characters with that ID");
         }
-      });
+    } catch (error) {
+      dispatch(showNotificacion({message: "There are no characters with that ID", type: 'error' }));
+    }          
   };
 
   const onClose = (id) => {

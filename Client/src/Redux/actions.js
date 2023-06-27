@@ -33,7 +33,7 @@ export const addFav = (character) => {
         payload: data,
       });
     } catch (error) {
-      
+      console.log(error);
     }
   };
 };
@@ -48,7 +48,7 @@ export const removeFav = (id) => {
         payload: data
       });
     } catch (error) {
-    
+      console.log(error);      
     }
   };
 };
