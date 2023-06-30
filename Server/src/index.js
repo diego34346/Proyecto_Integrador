@@ -19,8 +19,12 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use(express.json())
 server.use(morgan("dev")) 
+server.use(express.json())
+server.get("/",(req, res) => {
+  res.send("wellcome to my server")
+})
+
 server.use("/rickandmorty", router)
 
 server.listen(PORT, () => {

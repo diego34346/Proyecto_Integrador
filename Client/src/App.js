@@ -30,7 +30,7 @@ function App() {
       return dispatch(showNotificacion({message: "Repeated card", type: 'error' }));
     }
     try {
-      const response = await fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+      const response = await fetch(`https://backend-7u7p.onrender.com/rickandmorty/character/${id}`)
       const data = await response.json()
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
@@ -70,7 +70,7 @@ function App() {
 
   function Login(userData) {
     const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
+    const URL = 'https://backend-7u7p.onrender.com/rickandmorty/login/';
     axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
        const { access } = data;
        setAccess(data);

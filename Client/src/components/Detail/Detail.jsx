@@ -13,7 +13,7 @@ export default function Detail(){
     const {id} = useParams(); 
 
     useEffect(() => {
-        fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+        fetch(`https://backend-7u7p.onrender.com/rickandmorty/character/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.name) {

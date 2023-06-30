@@ -6,13 +6,6 @@ const { postFav, deleteFav } = require("../controllers/handleFavorites");
 
 router.get("/character/:id", getCharById)
 
-// router.get("/character/:id", (req, res) => {
-//   getCharById(req, res);
-// });
-
-// Se pueden enrutar de las dos maneras pero es redundente colocar los 
-// parametros (req, res)
-
 router.get("/login", login)
 
 router.post("/fav", postFav)
