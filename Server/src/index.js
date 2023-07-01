@@ -1,9 +1,9 @@
+// require('dotenv').config()
 const express = require("express");
 const server = express();
 const router = require('./routes/index')
 const morgan = require('morgan')
-require('dotenv').config()
-const { PORT_SERVER } = process.env
+const PORT_SERVER = 3001
 
 
 server.use((req, res, next) => {
