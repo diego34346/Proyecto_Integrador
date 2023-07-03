@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
 import validate from "./validation";
-import "./form.module.css";
 import style from "./form.module.css";
+import { useState, useEffect } from "react";
 
 export default function Form({ Login }) {
   const [userData, setUserData] = useState({

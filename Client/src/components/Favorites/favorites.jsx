@@ -1,11 +1,9 @@
-import { connect } from 'react-redux'
 import Card from '../Card/Card'
-// import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from '../../Redux/actions';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { filterCards, orderCards, resetFilters, removeFav } from '../../Redux/actions';
 import React from 'react';
 import style from './favorites.module.css'
+import { useDispatch, connect } from 'react-redux';
+import { useState } from 'react';
+import { filterCards, orderCards, resetFilters, removeFav } from '../../Redux/actions';
 
 
 function Favorites ( props ) {
