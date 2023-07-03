@@ -42,7 +42,7 @@ export default function Detail(){
             )}
             <div>
             <Link to="/home">
-            <button className={style.exit}>Go Back</button>
+            <button className={style.goBack}>Go Back</button>
             </Link> 
             </div>
             
