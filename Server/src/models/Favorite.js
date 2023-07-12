@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       },
 
       gender:{
-         dataType: Enum (Female - Male - Genderless - unknown),
+         type: DataTypes.ENUM('Female', 'Male ', 'Genderless', 'unknown'),
          allowNull: false
       },
 
