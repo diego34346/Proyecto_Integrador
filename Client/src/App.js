@@ -14,7 +14,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addCharacter, removeCharacter, showNotificacion } from "./Redux/actions";
 import axios from "axios";
-
+// require('dotenv').config()
+// const { URL_RENDER } = process.env
+const URL_RENDER = "https://backend-7u7p.onrender.com"
 
 function App() {
   const location = useLocation();
@@ -30,7 +32,7 @@ function App() {
       return dispatch(showNotificacion({message: "Repeated card", type: 'error' }));
     }
     try {
-      const response = await fetch(`https://backend-7u7p.onrender.com/rickandmorty/character/${id}`)
+      const response = await fetch(`${URL_RENDER}/rickandmorty/character/${id}`)
       const data = await response.json()
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
@@ -70,7 +72,7 @@ function App() {
 
   function Login(userData) {
     const { email, password } = userData;
-    const URL = 'https://backend-7u7p.onrender.com/rickandmorty/login/';
+    const URL = `${URL_RENDER}/rickandmorty/login/`;
     axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
        const { access } = data;
        setAccess(data);

@@ -1,9 +1,11 @@
 const axios = require("axios");
+require('dotenv').config()
+const { URL_API } = process.env
 
 const getCharById = async (req, res) => {
   const { id } = req.params;
   try {
-    const response = await axios.get ( `https://rickandmortyapi.com/api/character/${id}`);
+    const response = await axios.get ( `${URL_API}/${id}`);
     const { name, status, species, gender, origin, image } = response.data;
     return res.status(200).json({ id, name, status, species, gender, origin, image });
   } catch (error) {

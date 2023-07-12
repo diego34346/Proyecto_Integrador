@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import axios from "axios";
+// require('dotenv').config()
+// const { URL_RENDER } = process.env
+const URL_RENDER = "https://backend-7u7p.onrender.com"
 
 export default function Detail(){
 
@@ -11,7 +14,7 @@ export default function Detail(){
     const {id} = useParams(); 
 
     useEffect(() => {
-        fetch(`https://backend-7u7p.onrender.com/rickandmorty/character/${id}`)
+        fetch(`${URL_RENDER}/rickandmorty/character/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.name) {
