@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 // import axios from "axios";
 // require('dotenv').config()
 // const { URL_RENDER } = process.env
-const URL_RENDER = "https://backend-7u7p.onrender.com"
+
+// const URL_RENDER = "https://backend-7u7p.onrender.com"
+const URL_RENDER = "http://localhost:3001"
+
 
 export default function Detail(){
 
