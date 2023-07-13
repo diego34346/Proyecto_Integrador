@@ -3,7 +3,6 @@ const express = require("express");
 const server = express();
 const router = require('./routes/index')
 const morgan = require('morgan')
-const { conn } = require('./DB_connection');
 const PORT_SERVER = 3001
 
 // require('dotenv').config()
@@ -32,12 +31,9 @@ server.get("/",(req, res) => {
 
 server.use("/rickandmorty", router)
 
-conn.sync({force: true})
-.then(()=>{
-  server.listen(PORT_SERVER, () => {
-    console.log(`server raised in port ${PORT_SERVER}`);
-  })
+server.listen(PORT_SERVER, () => {
+  console.log(`server raised in port ${PORT_SERVER}`);
 })
-.catch((error)=> console.log(error))
+
 
 
