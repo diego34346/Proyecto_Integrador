@@ -18,14 +18,9 @@
     height: 25px;
     border-radius: 10px;
     border: 0px;
-    padding: opx;
- }
-
- @media (max-width: 800px) {
-   .add{
-      margin-top: 5%;
-      margin-bottom: 5%;
-   }
+    margin: 2em;
+    margin-left: 0px;
+    margin-right: 8em;
  }
  
  .add span {

@@ -1,23 +1,22 @@
 .divContainer{
+    width: 100%;
+    max-width: 1400px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;    
-}
-
-@media (max-width: 800px) {
-    .divContainer{
-        margin-top: 1rem;
-    }
+    margin: auto;
+    margin-top: 40px;
+    z-index: 1;
 }
 
 .detailContainer {  
     display: flex;    
+    justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
     background-color: #0d2944;
-    width: auto;
+    width: 75%;
     padding: 2em;
     padding-left: 1em;
     padding-right: 1em;
@@ -25,15 +24,8 @@
     margin-bottom: 0em;
     border-radius: 40px;
     box-shadow: 0px 0px 15px 7px rgba(21, 255, 0, 0.411);
-}
-
-@media(max-width: 800px){
-    .detailContainer{
-        flex-direction: column;
-        width: auto;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
+    min-width: 200px;
+    max-width: 650px;
 }
 
 .detailContainer h2 {
@@ -42,6 +34,16 @@
         color: rgb(249, 250, 249);
         text-shadow: -1px 0px 8px rgb(27, 255, 1);
         font-weight: 400;
+}
+
+@media (max-width: 500px) {
+    .detailContainer h2 {
+        font-size: 15px;
+        margin: 6px;
+        color: rgb(249, 250, 249);
+        text-shadow: -1px 0px 8px rgb(27, 255, 1);
+        font-weight: 400;
+    }
 }
 
 .detailContainer h1 {
@@ -54,6 +56,20 @@
     text-shadow: 0px 0px 8px rgb(27, 255, 1);
 }
 
+@media (max-width: 500px) {
+    
+    .detailContainer h1 {
+        font-size: 30px;
+        margin-bottom: 2%;
+        margin-top: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: rgb(249, 250, 249);
+        text-shadow: 0px 0px 8px rgb(27, 255, 1);
+    }
+}
+
+
 .detailContainer img{    
     border: 1px solid #26235c;
     width: 90%;
@@ -61,8 +77,8 @@
     transition: all 0.25s;
 }
 
-.goBack{
-    margin-top: 2rem;
+.exit{
+    margin-top: 3rem;
     width: 8rem;
     height: 1.6rem;
     background: #26235c;
@@ -82,13 +98,7 @@
     font-weight: 400;
 }
 
-@media (max-width: 800px) {
-    .goBack{
-        margin-top: 1rem;
-    }
-}
-
-.goBack:hover{
+.exit:hover{
     background: #0de111;
     color: black;
     border: 2px solid #0de111;
