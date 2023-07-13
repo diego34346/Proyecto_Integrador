@@ -3,9 +3,11 @@ const express = require("express");
 const server = express();
 const router = require('./routes/index')
 const morgan = require('morgan')
-require('dotenv').config()
-const { PORT_SERVER } = process.env
 const { conn } = require('./DB_connection');
+const PORT_SERVER = 3001
+
+// require('dotenv').config()
+// const { PORT_SERVER } = process.env
 
 
 server.use((req, res, next) => {

@@ -14,12 +14,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addCharacter, removeCharacter, showNotificacion } from "./Redux/actions";
 import axios from "axios";
+// const URL_RENDER = "https://backend-7u7p.onrender.com"
+const URL_RENDER = "http://localhost:3001"
+
 // require('dotenv').config()
 // const { URL_RENDER } = process.env
-
-const URL_RENDER = "https://backend-7u7p.onrender.com"
-// const URL_RENDER = "http://localhost:3001"
-
 
 function App() {
   const location = useLocation();
