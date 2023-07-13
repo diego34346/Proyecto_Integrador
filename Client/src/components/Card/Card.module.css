@@ -50,7 +50,14 @@
     width: 200px;
     margin-top: 20px;
     margin-bottom: 12px;
+    margin-left: 0px;
+    margin-right: 0px;
     border-radius: 15%;
+    transition: transform 300ms ease;
+}
+
+.divContainer img:hover{
+    transform: scale(1.07);
 }
 
 .btnFav{
@@ -67,8 +74,8 @@
     border-radius: none;
     border: none;
     font-size: 17px;
-    
 }
+
 
 
 

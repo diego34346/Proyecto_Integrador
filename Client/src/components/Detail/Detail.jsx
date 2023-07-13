@@ -2,7 +2,15 @@ import React from "react";
 import style from "./Detail.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+// const URL_RENDER = "https://backend-7u7p.onrender.com"
+const URL_RENDER = "http://localhost:3001"
+
 // import axios from "axios";
+// require('dotenv').config()
+// const { URL_RENDER } = process.env
+
+
 
 export default function Detail(){
 
@@ -10,7 +18,7 @@ export default function Detail(){
     const {id} = useParams(); 
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        fetch(`${URL_RENDER}/rickandmorty/character/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.name) {
@@ -39,6 +47,11 @@ export default function Detail(){
             ) : (
                 <h3>Loading...</h3>
             )}
+            <div>
+            <Link to="/home">
+            <button className={style.goBack}>Go Back</button>
+            </Link> 
+            </div>
             
         </div>
     )

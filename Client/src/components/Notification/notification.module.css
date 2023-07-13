@@ -1,0 +1,70 @@
+.notification {
+    position:absolute;
+    top: 3rem;
+    right: 8rem;
+    width: max-content;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #f6f5f9;
+    transform: translateY(-30px);
+    opacity: 0;
+    visibility: hidden; 
+    animation: fade-in 1.8s linear forwards;
+    border: 1px solid #5c9d90;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 99;
+  }
+  
+  .notification p {
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .notificationProgress {
+    position: absolute;
+    left: 5px;
+    bottom: 15px;
+    width: calc(100% - 10px);
+    height: 3px;
+    transform: scalex(0);
+    transform-origin: left;
+    background-image: linear-gradient(to right, #2bfb02, #0771015e);
+    border-radius: inherit;
+    animation: load 1.3s 0.25s linear forwards;
+    z-index: 99;
+  }
+  
+  @keyframes fade-in {
+    5% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes load {
+    to {
+      transform: scalex(1);
+    }
+  }
+  
+  .success {
+    border: 2px solid #0aff02a1;
+    background-image: linear-gradient(to right, #0f04dd89, #0ae90e95);
+  }
+  
+  .error {
+    border: 2px solid #ff2e04ab;
+    box-shadow: 0 0px 10px 5px #ff0000b0;
+    background-image: linear-gradient(to right, #0f04dd9d, #ff0404a3);    
+  }
+
+  .error .notificationProgress{
+    background-image: linear-gradient(to right, #ff0000b1, #61000098); 
+  }
+  

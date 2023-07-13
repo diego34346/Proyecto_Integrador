@@ -1,46 +1,49 @@
 import "./App.css";
-// import Card from './components/Card/Card.jsx';
 import Cards from "./components/Cards/Cards.jsx";
-// import SearchBar from './components/SearchBar/SearchBar.jsx';
 import Nav from "./components/Nav/Nav";
 import Favorites from "./components/Favorites/favorites";
-// import characters, { } from './data.js';
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/form";
+import Notification from "./components/Notification/Notification.jsx";
 import { useState } from "react";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addCharacter, removeCharacter } from "./Redux/actions";
-// import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { addCharacter, removeCharacter, showNotificacion } from "./Redux/actions";
+import axios from "axios";
+// const URL_RENDER = "https://backend-7u7p.onrender.com"
+const URL_RENDER = "http://localhost:3001"
 
+// require('dotenv').config()
+// const { URL_RENDER } = process.env
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { notification } = useSelector(state => state)
 
   const [characters, setCharacters] = useState([]);
 
-  const onSearch = (id) => {
-    if (characters.some((character) => character.id === parseInt(id))) {
+  const onSearch = async (id) => {
+    if (characters.some((character) => character.id === (id))) {
       setCharacters((oldChars) => [...oldChars]);
-      return window.alert("Repeated card");
+      return dispatch(showNotificacion({message: "Repeated card", type: 'error' }));
     }
-    
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
+    try {
+      const response = await fetch(`${URL_RENDER}/rickandmorty/character/${id}`)
+      const data = await response.json()
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
           dispatch(addCharacter(data))
-        } else {
-          window.alert("There are no characters with that ID");
+          dispatch(showNotificacion({message: 'Successfully added ', type: 'success' }));
         }
-      });
+    } catch (error) {
+      dispatch(showNotificacion({message: "There are no characters with that ID", type: 'error' }));
+    }          
   };
 
   const onClose = (id) => {
@@ -54,30 +57,30 @@ function App() {
 
   const [access, setAccess] = useState(false);
 
-  const EMAIL = "diego@email.com"
-  const PASSWORD = "654321"
+  // const EMAIL = "diego@email.com"
+  // const PASSWORD = "654321"
 
   useEffect(() => {
     !access && navigate('/')    
     // eslint-disable-next-line
     }, [access]);
 
-  const Login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-       setAccess(true)
-       navigate('/home')      
-    }
-  }  
+  // const Login = (userData) => {
+  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
+  //      setAccess(true)
+  //      navigate('/home')      
+  //   }
+  // }  
 
-//   function Login(userData) {
-//     const { email, password } = userData;
-//     const URL = 'http://localhost:3001/rickandmorty/login/';
-//     axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-//        const { access } = data;
-//        setAccess(data);
-//        access && navigate('/home');
-//     });
-//  }
+  function Login(userData) {
+    const { email, password } = userData;
+    const URL = `${URL_RENDER}/rickandmorty/login/`;
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ }
 
   return (
     <div>     
@@ -95,19 +98,10 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path='/detail/:id' element={<Detail/>} />          
 
-          {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
-          
-          {/* <Card
-              id={Rick.id}
-              name={Rick.name}
-              status={Rick.status}
-              species={Rick.species}
-              gender={Rick.gender}
-              origin={Rick.origin.name}
-              image={Rick.image}
-              onClose={() => window.alert('Emulamos que se cierra la card')}
-            /> */}
         </Routes>
+        { notification.message !== "" &&
+          <Notification />
+        }
       </div>
     </div>
   );

@@ -6,12 +6,18 @@ import {
   ADD_CHARACTER,
   REMOVE_CHARACTER,
   RESET_FILTERS,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION
 } from "./actions";
 
 const initialState = {
   allCharacters: [],
   myFavorites: [],
   filterCharacters: [],
+  notification: {
+    message: "",
+    type: "",
+  },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -33,20 +39,14 @@ const rootReducer = (state = initialState, action) => {
     case ADD_FAV:
       return {
         ...state,
-        filterCharacters: [...state.filterCharacters, action.payload],
-        myFavorites: [...state.myFavorites, action.payload],
+        myFavorites: action.payload,
+        filterCharacters: action.payload,
       };
 
     case REMOVE_FAV:
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter(
-          (char) => char.id !== action.payload
-        ),
-        filterCharacters: state.filterCharacters.filter(
-          (char) => char.id !== action.payload
-        ),
-      };
+      return { ...state, 
+        myFavorites: action.payload,  
+        filterCharacters: action.payload};
 
     case FILTER:
       return {
@@ -70,6 +70,18 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filterCharacters: [...state.myFavorites],
+      };
+
+    case SHOW_NOTIFICATION:
+      return {
+        ...state,
+        notification: action.payload,
+      };
+
+    case HIDE_NOTIFICATION:
+      return {
+        ...state,
+        notification: initialState.notification,
       };
 
     default:
