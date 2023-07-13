@@ -17,7 +17,7 @@ export default function SearchBar( {onSearch} ) {
 	}
 
    return (
-      <div id="inputSearch">
+      <div id="inputSearch" className={style.onSearch}>
          <input 
          className={style.inputid} 
          type='search' 

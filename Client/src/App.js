@@ -14,8 +14,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addCharacter, removeCharacter, showNotificacion } from "./Redux/actions";
 import axios from "axios";
-// const URL_RENDER = "https://backend-7u7p.onrender.com"
-const URL_RENDER = "http://localhost:3001"
+const URL_RENDER = "https://backend-7u7p.onrender.com"
+// const URL_RENDER = "http://localhost:3001"
 
 // require('dotenv').config()
 // const { URL_RENDER } = process.env
@@ -98,18 +98,6 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path='/detail/:id' element={<Detail/>} />          
 
-          {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
-          
-          {/* <Card
-              id={Rick.id}
-              name={Rick.name}
-              status={Rick.status}
-              species={Rick.species}
-              gender={Rick.gender}
-              origin={Rick.origin.name}
-              image={Rick.image}
-              onClose={() => window.alert('Emulamos que se cierra la card')}
-            /> */}
         </Routes>
         { notification.message !== "" &&
           <Notification />

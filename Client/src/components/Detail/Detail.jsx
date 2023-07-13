@@ -3,8 +3,8 @@ import style from "./Detail.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-// const URL_RENDER = "https://backend-7u7p.onrender.com"
-const URL_RENDER = "http://localhost:3001"
+const URL_RENDER = "https://backend-7u7p.onrender.com"
+// const URL_RENDER = "http://localhost:3001"
 
 // import axios from "axios";
 // require('dotenv').config()
@@ -49,7 +49,7 @@ export default function Detail(){
             )}
             <div>
             <Link to="/home">
-            <button className={style.exit}>Go Back</button>
+            <button className={style.goBack}>Go Back</button>
             </Link> 
             </div>
             

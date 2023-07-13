@@ -8,8 +8,8 @@ export const FILTER = 'FILTER';
 export const ORDER = 'ORDER';
 export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
 export const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION';
-// const URL_RENDER = "https://backend-7u7p.onrender.com"
-const URL_RENDER = "http://localhost:3001"
+const URL_RENDER = "https://backend-7u7p.onrender.com"
+// const URL_RENDER = "http://localhost:3001"
 
 export const addCharacter = (character) => {
   return {
