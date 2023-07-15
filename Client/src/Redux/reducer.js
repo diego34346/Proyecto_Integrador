@@ -10,6 +10,8 @@ import {
   HIDE_NOTIFICATION
 } from "./actions";
 
+
+
 const initialState = {
   allCharacters: [],
   myFavorites: [],
