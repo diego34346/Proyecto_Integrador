@@ -32,12 +32,10 @@ server.get("/",(req, res) => {
 
 server.use("/rickandmorty", router)
 
-conn.sync({force: true})
+conn.sync({force: false})
 .then(()=>{
   server.listen(PORT_SERVER, () => {
     console.log(`server raised in port ${PORT_SERVER}`);
   })
 })
 .catch((error)=> console.log(error))
-
-
